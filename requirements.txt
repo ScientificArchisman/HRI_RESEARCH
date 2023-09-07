@@ -1,0 +1,6 @@
+pandas
+numpy
+ase
+periodictable
+dtale
+-e .

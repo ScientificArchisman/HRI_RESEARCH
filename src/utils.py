@@ -1,5 +1,7 @@
 from ase import io
 import os
+import pickle
+from src.logger import logging
 
 def get_pocar_file(cif_files_path:str, output_directory:str, verbosity:int = 0) -> None:
     """Converts CIF file to POSCAR file
@@ -36,6 +38,43 @@ def get_pocar_file(cif_files_path:str, output_directory:str, verbosity:int = 0) 
         if verbosity == 1:
             print(f"Writing POSCAR file to {output_file}")
         io.write(output_file, atom, format="vasp") # Write the POSCAR file
+        
+
+def save_pickle(object, filename):
+    """
+    Save a scikit-learn object to a file using pickle.
+    
+    Parameters:
+        object (any): The object to be saved.
+        filename (str): The name of the file to save the object to.
+    """
+    try:
+        with open(filename, 'wb') as f:
+            pickle.dump(object, f)
+        logging.info(f"Object saved to {filename}")
+    except Exception as e:
+        logging.error("Error saving object: %s", e)
+
+def load_pickle(filename):
+    """
+    Load an object from a file using pickle.
+    
+    Parameters:
+        filename (str): The name of the file to load the preprocessor object from.
+        
+    Returns:
+        preprocessor: The loaded object.
+    """
+    try:
+        with open(filename, 'rb') as f:
+            preprocessor = pickle.load(f)
+        logging.info(f"Preprocessor loaded from {filename}")
+        return preprocessor
+    except Exception as e:
+        logging.error("Error loading preprocessor: %s", e)
+        raise e
+
+
 
 
 if __name__ == "__main__":
