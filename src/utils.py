@@ -2,6 +2,7 @@ from ase import io
 import os
 import pickle
 from src.logger import logging
+import periodictable
 
 def get_pocar_file(cif_files_path:str, output_directory:str, verbosity:int = 0) -> None:
     """Converts CIF file to POSCAR file
@@ -74,6 +75,22 @@ def load_pickle(filename):
         logging.error("Error loading preprocessor: %s", e)
         raise e
 
+
+
+def element_has_atomic_number_greater_than_50(element_symbol):
+    try:
+        element = periodictable.elements.symbol(element_symbol.capitalize())
+        if element.number > 50:
+            return True
+        else:
+            return False
+    except periodictable.core.ElementError:
+        return False
+
+def list_has_element_with_atomic_number_greater_than_50(element_list):
+    if any(element_has_atomic_number_greater_than_50(element) for element in element_list):
+        return True
+    return False
 
 
 
