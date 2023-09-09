@@ -72,7 +72,7 @@ def load_pickle(filename):
         logging.info(f"Preprocessor loaded from {filename}")
         return preprocessor
     except Exception as e:
-        logging.error("Error loading preprocessor: %s", e)
+        logging.error("Error loading object: %s", e)
         raise e
 
 

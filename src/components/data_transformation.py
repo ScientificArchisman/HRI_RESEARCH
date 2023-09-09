@@ -53,7 +53,7 @@ class DataTransformation:
             else:
                 hasz_morethan_50[compound_idx] = np.nan
 
-        df = pd.DataFrame(data, columns=self.attributes)
+        df = pd.DataFrame(data, columns=self.attributes, index=None)
         df["Has_Z>50"] = hasz_morethan_50.astype(bool)
         logging.info("Created dataframe of all attributes")
         df = df[self.attributes]
