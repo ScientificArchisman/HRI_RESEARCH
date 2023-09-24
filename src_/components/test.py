@@ -1,0 +1,1 @@
+from src_.components import data_ingestion

@@ -1,9 +1,9 @@
-from src.logger import logging
+from src_.logger import logging
 import pandas as pd
 import os
 import numpy as np
 import inspect
-from data_ingest import DataIngestion
+from src_.components.data_ingestion import DataIngestion
 import periodictable
 
 

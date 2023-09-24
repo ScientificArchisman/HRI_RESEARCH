@@ -1,7 +1,7 @@
 import os
-from src.logger import logging
-from data_ingest import DataIngestion
-from data_transformation import DataTransformation
+from src_.logger import logging
+from src_.components.data_ingestion import DataIngestion
+from src_.components.data_transformation import DataTransformation
 import dtale
 
 class ShowTable:

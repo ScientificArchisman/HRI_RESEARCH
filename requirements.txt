@@ -3,4 +3,5 @@ numpy
 ase
 periodictable
 dtale
+flask
 -e .

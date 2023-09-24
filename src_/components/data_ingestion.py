@@ -1,7 +1,7 @@
 import os
-from src.logger import logging
+from src_.logger import logging
 from ase.db import connect
-from src.utils import save_pickle
+from src_.utils import save_pickle
 
 
 class DataIngestion:

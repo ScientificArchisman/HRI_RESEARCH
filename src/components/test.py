@@ -1,1 +1,0 @@
-from src.components import data_ingest

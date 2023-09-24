@@ -1,7 +1,7 @@
 from ase import io
 import os
 import pickle
-from src.logger import logging
+from src_.logger import logging
 import periodictable
 
 def get_pocar_file(cif_files_path:str, output_directory:str, verbosity:int = 0) -> None:
