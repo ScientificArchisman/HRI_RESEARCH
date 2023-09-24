@@ -5,8 +5,7 @@
 </head>
 <body>
     <h2>Select a database to view:</h2>
-    <!-- Added target="_blank" to open the form submission in a new tab -->
-    <form action="/view" method="get" target="_blank">
+    <form action="/view" method="post" target="_blank">
         <select name="dbname">
             {% for db in databases %}
             <option value="{{ db }}">{{ db }}</option>

@@ -1,7 +1,6 @@
 import os
 from src_.logger import logging
 from ase.db import connect
-from src_.utils import save_pickle
 
 
 class DataIngestion:
@@ -39,9 +38,8 @@ class DataIngestion:
 
         
 if __name__ == "__main__":
-    # database_path = "/Users/archismanchakraborti/Desktop/python_files/HRI_Research_Work/Data_management/artifacts/db_files/abse3.db"
-    # data_ingestion = DataIngestion(database_path)
-    # compounds = data_ingestion.convert_db_to_list()
-    # print(compounds)
-    print(dir(DataIngestion))
+    database_path = "/Users/archismanchakraborti/Desktop/python_files/HRI_Research_Work/Data_management/artifacts/db_files/abse3.db"
+    data_ingestion = DataIngestion(database_path)
+    compounds = data_ingestion.convert_db_to_list()
+    print(compounds)
 

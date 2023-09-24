@@ -24,21 +24,24 @@ class ShowTable:
     def open_in_dtale(self):
         if self.df is not None:
             # Create a D-Tale instance and pass the DataFrame to it
-            self.dtale_instance = dtale.show(self.df, subprocess = False)
+            self.dtale_instance = dtale.show(self.df, host='0.0.0.0', port=40000, subprocess = False)
             # Provide the URL for accessing the D-Tale web interface
             logging.info(f"Opened D-Tale instance at {self.dtale_instance._url}")
+            return self.dtale_instance._url
 
     def close_dtale(self):
         if self.dtale_instance is not None:
             # Stop the D-Tale instance when done
             self.dtale_instance.kill()
+            logging.info("Closed D-Tale instance")
+            return
 
     @staticmethod
     def prompt_for_database_name():
         return input("Please enter the name of the database: ")
 
 if __name__ == "__main__":
-    database_path = "/Users/archismanchakraborti/Desktop/python_files/HRI_Research_Work/Data_management/artifacts/db_files"
+    database_path = "artifacts/db_files"
     database_name = ShowTable.prompt_for_database_name()
     show_table = ShowTable(database_path, database_name)
     print(show_table.open_in_dtale())
